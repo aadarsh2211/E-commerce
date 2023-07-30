@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Gear</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../css/style1.css">
+</head>
+
+<body style="background:radial-gradient(#fff, #ffd6d6);">
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index"><img src="view/img/logo.png" alt="logo" width="125px" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Add_Items">Add Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="container " style="min-height: 100vh;">
+        <div class="card p-5 rounded add" style="background:radial-gradient(#fff, #ffd6d6);">
+            <h1 class="mb-4 text-center fw-bold">Add New Item</h1>
+            <form th:action="@{/product}" method="post" th:object="${Product}" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="productImage">Upload Product Image</label>
+                    <input type="file" name="productImage" class="form-control" accept="image/jpeg, image/png" id="product-file-input">
+
+                </div>
+               
+                <div class="mb-3">
+                    <label for="product-name-input" class="form-label">Product Name</label>
+                    <input type="text" name="pname" required th:field="${Product.pname}" placeholder="Enter product name" class="form-control" id="product-name-input">
+                </div>
+               
+                <div class="mb-3">
+                    <label for="product-rating-input" class="form-label">Product Rating</label>
+                    <select class="form-select" name="prating" required th:field="${Product.prating}" id="product-rating-input">
+                        <option value="0">No rating</option>
+                        <option value="1">1 star</option>
+                        <option value="2">2 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="5">5 stars</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="product-reviews-input" class="form-label">Product Reviews</label>
+                    <input type="number" name="preview" required th:field="${Product.preview}" placeholder="Enter of number of views" class="form-control"
+                        id="product-reviews-input">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="product-material-input" class="form-label">Product Material</label>
+                    <input type="text" name="pmaterial" th:field="${Product.pmaterial}" placeholder="Enter material type Eg:cotton" class="form-control"
+                        id="product-material-input">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="product-weight-input" class="form-label">Product Weight</label>
+                    <input type="text" name="pweight" required th:field="${Product.pweight}" placeholder="Enter weight Eg: Light " class="form-control"
+                        id="product-weight-input">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="product-finish-input" class="form-label">Product Finish</label>
+                    <input type="text" name="pfinish" required th:field="${Product.pfinish}" placeholder="Enter product finish Eg:Best" class="form-control"
+                        id="product-finish-input">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="product-description-input" class="form-label">Product Description</label>
+                    <input class="form-control" name="pdesc" required th:field="${Product.pdesc}" placeholder="Enter Specification "
+                        id="product-description-input"></input>
+                </div>
+               
+                <div class="mb-3">
+                    <label for="product-gender-input" class="form-label">Product Gender</label>
+                    <select class="form-select" name="pgender" required th:field="${Product.pgender}" id="product-gender-input">
+                        <option value="unisex">Unisex</option>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                        <option value="kids">Kids</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="product-style-input" class="form-label">Product Style</label>
+                    <input type="text" name="pstyle" required th:field="${Product.pstyle}" placeholder="Enter product style Eg: Casual" class="form-control"
+                        id="product-style-input">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="product-info-input" class="form-label">Product Info</label>
+                    <textarea class="form-control" name="pinfo" required th:field="${Product.pinfo}" placeholder="Enter Product Description"
+                        id="product-info-input"></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="product-price-input" class="form-label">Product Price</label>
+                    <input type="number" name="pprice" required th:field="${Product.pprice}" placeholder="Enter price" class="form-control" id="product-price-input"
+                        step="0.01">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="product-discount-input" class="form-label">Total Price</label>
+                    <input type="number" name="ptotal" required th:field="${Product.ptotal}" placeholder="Enter Total price without discount" class="form-control" id="product-discount-input"
+                        step="0.01">
+
+                </div>
+               
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mt-3 w-25 py-3 fw-bold ">Add Product</button>
+                </div>
+            
+            </form>
+        </div>
+    </div>
+
+ <!--    <script src="view/js/index.js"></script> -->
+</body>
+
+</html>

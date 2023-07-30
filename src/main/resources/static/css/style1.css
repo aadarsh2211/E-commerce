@@ -1,0 +1,28 @@
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/* header */
+.header ,.offer-bg{
+  background: radial-gradient(#fff, #ffd6d6);
+}
+/* footer */
+.footer-icons{
+  color: #fff;
+  text-decoration: none;
+}
+.footer-icons:hover{
+  color: hsl(0, 84%, 85%);
+}
+/* additems */
+.add{
+  box-shadow: 0 0.5rem 1rem 0 hsla(0, 87%, 37%, 0.5);
+}
+.form-label{
+  font-weight:bold ;
+}
+/* product */
+.product_img{
+  width:50%;
+  height: 50%;
+  margin: auto;
+}
